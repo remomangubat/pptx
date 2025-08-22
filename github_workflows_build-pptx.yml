@@ -3,8 +3,7 @@ name: Build slides
 on:
   push:
     paths:
-      - "slides/**/*.md"
-      - "package.json"
+      - "slides_exploring-careers-in-tech-for-informatics.marp_Version3.md"
       - ".github/workflows/build-pptx.yml"
   workflow_dispatch: {}
 
@@ -16,10 +15,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install
       - run: mkdir -p dist
-      - run: npm run build
+      - run: npx @marp-team/marp-cli@latest --allow-local-files --pptx slides_exploring-careers-in-tech-for-informatics.marp_Version3.md -o dist/exploring-careers-in-tech-for-informatics.pptx
+      - run: npx @marp-team/marp-cli@latest --allow-local-files --pdf slides_exploring-careers-in-tech-for-informatics.marp_Version3.md -o dist/exploring-careers-in-tech-for-informatics.pdf
       - uses: actions/upload-artifact@v4
         with:
           name: slides-pptx-and-pdf
