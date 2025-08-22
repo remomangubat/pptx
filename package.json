@@ -1,0 +1,13 @@
+{
+  "name": "exploring-careers-in-tech-slides",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:pptx": "marp --allow-local-files --pptx slides/exploring-careers-in-tech-for-informatics.marp.md -o dist/exploring-careers-in-tech-for-informatics.pptx",
+    "build:pdf": "marp --allow-local-files --pdf slides/exploring-careers-in-tech-for-informatics.marp.md -o dist/exploring-careers-in-tech-for-informatics.pdf",
+    "build": "npm run build:pptx && npm run build:pdf"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.4.0"
+  }
+}
